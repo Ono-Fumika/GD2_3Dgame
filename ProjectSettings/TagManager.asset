@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - DrawColosion
+  - Police
+  - SearchRange
   layers:
   - Default
   - TransparentFX

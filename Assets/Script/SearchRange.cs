@@ -8,7 +8,7 @@ public class SearchRange : MonoBehaviour
     // スケール
     public Vector3 currentScale;
     // スケール変更の速度
-    float scaleSpeed = 1.0f;
+    float scaleSpeed = 2.0f;
 
 
     void Start()

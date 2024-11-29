@@ -100,17 +100,13 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("OnTriggerEnter called"); // デバッグメッセージを追加
         // DrawColisionに当たったら
         if (other.tag == "DrawColosion")
         {
             // 壁を判定する
             wall = other.transform.parent.GetComponent<Wall>();
             searchRange = wall.GetComponentInChildren<SearchRange>();
-
-            if(searchRange == null)
-            {
-                Debug.Log("ない！");
-            }
         }
     }
 
