@@ -6,14 +6,14 @@ using UnityEngine.Tilemaps;
 public class SearchRange : MonoBehaviour
 {
     // スケール
-    Vector3 currentScale;
-    // 大きくなる
-
+    public Vector3 currentScale;
+    // スケール変更の速度
+    float scaleSpeed = 1.0f;
 
 
     void Start()
     {
-        currentScale = transform.localScale;
+        
     }
 
     void Update()
@@ -23,12 +23,10 @@ public class SearchRange : MonoBehaviour
 
     public void Spread()
     {
-        // スケール変更の速度
-        float scaleSpeed = 1.0f;
-
+        currentScale = transform.localScale;
         // 徐々に大きくする
-        currentScale.x += scaleSpeed * Time.deltaTime;
-        currentScale.y += scaleSpeed * Time.deltaTime;
+        currentScale.x += scaleSpeed/5 * Time.deltaTime;
+        currentScale.z += scaleSpeed * Time.deltaTime;
         // スケールを適用する
         transform.localScale = currentScale;
     }

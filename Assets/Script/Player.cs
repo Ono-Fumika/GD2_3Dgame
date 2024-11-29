@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     // 壁
-    Wall wall;
+    public Wall wall;
     // サーチ範囲
     SearchRange searchRange;
     // 移動できるかのフラグ
@@ -74,7 +74,7 @@ public class Player : MonoBehaviour
         if (wall != null)
         {
             // スペースを押したら
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKey(KeyCode.Space))
             {
                 // 移動をやめる
                 isMove = false;
@@ -84,7 +84,6 @@ public class Player : MonoBehaviour
                 wall.DrawPaint(true);
                 // 範囲を大きくする
                 searchRange.Spread();
-
             }
             // 離したら
             if (Input.GetKeyUp(KeyCode.Space))
@@ -107,6 +106,11 @@ public class Player : MonoBehaviour
             // 壁を判定する
             wall = other.transform.parent.GetComponent<Wall>();
             searchRange = wall.GetComponentInChildren<SearchRange>();
+
+            if(searchRange == null)
+            {
+                Debug.Log("ない！");
+            }
         }
     }
 
