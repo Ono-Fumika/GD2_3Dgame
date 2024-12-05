@@ -5,7 +5,7 @@ using UnityEngine;
 public class SearchMob : MonoBehaviour
 {
     // Mob
-    GameObject target;
+    public GameObject target;
     // ”ÍˆÍ“à‚ÌMob‚ÌƒŠƒXƒg
     [SerializeField]
     List<GameObject> mobs = new List<GameObject>();
