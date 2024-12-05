@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Paint : MonoBehaviour
 {
+    // プレイヤー
+    Player player;
     // フェードにかかる総時間
     float fadeDuration = 3.0f;
     // 今の経過時間
@@ -40,13 +42,15 @@ public class Paint : MonoBehaviour
             else
             {
                 // 絵を描くモードをやめる
-                
+                isDraw = false;
+                player.StopDraw();
             }
         }
     }
 
-    public void Draw(bool isDraw_)
+    public void Draw(bool isDraw_,Player player_)
     {
+        player = player_;
         isDraw = isDraw_;
     }
 }

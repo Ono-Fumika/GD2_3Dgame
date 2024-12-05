@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -8,14 +9,15 @@ public class Player : MonoBehaviour
     public Wall wall;
     // サーチ範囲
     SearchRange searchRange;
+    // Mob
+    GameObject targetMob;
     // 移動できるかのフラグ
     bool isMove = true;
 
     void Start()
     {
-        
-    }
 
+    }
     void Update()
     {
         // 移動
@@ -28,9 +30,16 @@ public class Player : MonoBehaviour
         {
             DrawPaint();
         }
-        
-    }
+        // モブを変える
+        if(targetMob != null)
+        {
+            // スペースを押したら
+            if (Input.GetKey(KeyCode.Space))
+            {
 
+            }
+        }
+    }
     void Move()
     {
         // 移動スピード
@@ -81,7 +90,7 @@ public class Player : MonoBehaviour
                 // 絵を描くアニメーション
 
                 // 壁から絵を描く関数を呼び出す
-                wall.DrawPaint(true);
+                wall.DrawPaint(true,this);
                 // 範囲を大きくする
                 searchRange.Spread();
             }
@@ -89,7 +98,7 @@ public class Player : MonoBehaviour
             if (Input.GetKeyUp(KeyCode.Space))
             {
                 // 壁から絵を描く関数を呼び出す
-                wall.DrawPaint(false);
+                wall.DrawPaint(false,this);
                 // DrawColisionを消す
                 wall.DrawColisionDestory();
                 isMove = true;
@@ -98,15 +107,24 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void StopDraw()
     {
-        Debug.Log("OnTriggerEnter called"); // デバッグメッセージを追加
+        // DrawColisionを消す
+        wall.DrawColisionDestory();
+        isMove = true;
+        wall = null;
+    }
+    void OnCollisionEnter(Collision collision)
+    {
+        
         // DrawColisionに当たったら
-        if (other.tag == "DrawColosion")
+        if (collision.transform.tag == "DrawColosion")
         {
+            Debug.Log("OnTriggerEnter called"); // デバッグメッセージを追加
             // 壁を判定する
-            wall = other.transform.parent.GetComponent<Wall>();
+            wall = collision.transform.parent.GetComponent<Wall>();
             searchRange = wall.GetComponentInChildren<SearchRange>();
+            Physics.IgnoreCollision(collision.collider, GetComponent<Collider>());
         }
     }
 

@@ -15,7 +15,7 @@ public class Police : MonoBehaviour
     // プレイヤーを追いかけているかのフラグ
     bool isChasePlayer = false;
     // プレイヤーを見つけたかのフラグ
-    bool isFindPlayer = false;
+    //bool isFindPlayer = false;
 
     void Start()
     {
@@ -34,7 +34,6 @@ public class Police : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("OnTriggerEnter called"); // デバッグメッセージを追加
         // 範囲に入ったら
         if (other.tag == "SearchRange")
         {
@@ -46,16 +45,17 @@ public class Police : MonoBehaviour
     {
         // プレイヤーを追いかける
         navmeshAgent.destination = player.transform.position;
-        // プレイヤーとキョリ正規化
-        Vector3 direction = (player.transform.position - transform.position).normalized;
-        // プレイヤーに向けてレイを飛ばす
-        Ray ray = new(transform.position,direction);
-        // レイがプレイヤーに当たったら見つける
-        RaycastHit hit;
-        if(Physics.Raycast(ray,out hit))
-        {
-            isFindPlayer = true;
-        }
+
+        //// プレイヤーとキョリ正規化
+        //Vector3 direction = (player.transform.position - transform.position).normalized;
+        //// プレイヤーに向けてレイを飛ばす
+        //Ray ray = new(transform.position,direction);
+        //// レイがプレイヤーに当たったら見つける
+        //RaycastHit hit;
+        //if(Physics.Raycast(ray,out hit))
+        //{
+        //    isFindPlayer = true;
+        //}
 
     }
 

@@ -7,11 +7,13 @@ TagManager:
   - DrawColosion
   - Police
   - SearchRange
+  - Mob
+  - Wall
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - DrawColosion
   - Water
   - UI
   - 

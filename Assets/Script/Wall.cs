@@ -20,12 +20,12 @@ public class Wall : MonoBehaviour
         
     }
 
-    public void DrawPaint(bool isDraw)
+    public void DrawPaint(bool isDraw,Player player_)
     {
         paint = GetComponentInChildren<Paint>();
         if (paint != null)
         {
-            paint.Draw(isDraw);
+            paint.Draw(isDraw,player_);
         }
     }
 

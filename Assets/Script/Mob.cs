@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DrawUI : MonoBehaviour
+public class MOB : MonoBehaviour
 {
     // ÉvÉåÉCÉÑÅ[
     Player player;
@@ -14,5 +14,15 @@ public class DrawUI : MonoBehaviour
 
     void Update()
     {
+        
     }
+
+    public void Change(Player player_)
+    {
+        player = player_;
+
+    }
+
+
+
 }
