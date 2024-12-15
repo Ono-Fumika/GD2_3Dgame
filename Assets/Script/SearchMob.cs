@@ -5,10 +5,10 @@ using UnityEngine;
 public class SearchMob : MonoBehaviour
 {
     // Mob
-    public GameObject target;
+    public MOB target;
     // 範囲内のMobのリスト
     [SerializeField]
-    List<GameObject> mobs = new List<GameObject>();
+    List<MOB> mobs = new List<MOB>();
     // プレイヤー
     Player player;
 
@@ -23,9 +23,9 @@ public class SearchMob : MonoBehaviour
         if (mobs.Count > 0)
         {
             float closestDistance = Mathf.Infinity;
-            GameObject closestMob = null;
+            MOB closestMob = null;
 
-            foreach (GameObject mob in mobs)
+            foreach (MOB mob in mobs)
             {
                 float distance = Vector3.Distance(player.transform.position, mob.transform.position);
                 if (distance < closestDistance)
@@ -36,6 +36,7 @@ public class SearchMob : MonoBehaviour
             }
 
             target = closestMob;
+            player.SetTarget(target);
         }
     }
 
@@ -45,10 +46,10 @@ public class SearchMob : MonoBehaviour
         // Mobに当たったら
         if (other.tag == "Mob")
         {
-            // リストにMobを追加
-            if (!mobs.Contains(other.gameObject))
+            MOB mob = other.GetComponent<MOB>(); 
+            if (mob != null && !mobs.Contains(mob))
             {
-                mobs.Add(other.gameObject);
+                mobs.Add(mob);
             }
         }
     }
@@ -57,11 +58,17 @@ public class SearchMob : MonoBehaviour
         // Mobが範囲外に出たら
         if (other.CompareTag("Mob"))
         {
-            // リストから外す
-            if (mobs.Contains(other.gameObject))
+            MOB mob = other.GetComponent<MOB>();
+            if(mob != null && mobs.Contains(mob))
             {
-                mobs.Remove(other.gameObject);
+                mobs.Remove(mob);
+                // ターゲットだった場合ターゲットからも外す
+                if (mob == target)
+                {
+                    target = null;
+                }
             }
+            
         }
     }
 }

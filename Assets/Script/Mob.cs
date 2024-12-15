@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class MOB : MonoBehaviour
 {
-    // ÉvÉåÉCÉÑÅ[
-    Player player;
+    [SerializeField]
+    mobPlayer mobPlayer;
+
 
     void Start()
     {
@@ -17,10 +18,10 @@ public class MOB : MonoBehaviour
         
     }
 
-    public void Change(Player player_)
+    public void ChangeAppearance(GameObject player_)
     {
-        player = player_;
-
+        Instantiate(mobPlayer, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 
 
