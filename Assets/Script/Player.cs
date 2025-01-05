@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -144,6 +145,14 @@ public class Player : MonoBehaviour
 
             // ターゲットを壁にする
             targetMob = null;
+        }
+        // 追いかけてくる警察に当たったら
+        if(collision.transform.tag == "Police")
+        {
+            // 現在のシーンの名前を取得
+            string currentSceneName = SceneManager.GetActiveScene().name;
+            // シーンを再読み込み
+            SceneManager.LoadScene(currentSceneName);
         }
     }
     private void OnCollisionExit(Collision collision)

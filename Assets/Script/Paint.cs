@@ -53,6 +53,7 @@ public class Paint : MonoBehaviour
             if (player != null)
             {
                 player.StopDraw();
+                player = null;
             }
 
         }
