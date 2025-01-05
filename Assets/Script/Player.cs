@@ -41,7 +41,7 @@ public class Player : MonoBehaviour
             // スペースを押したら
             if (Input.GetKey(KeyCode.Space) || (Input.GetButton("Fire1")))
             {
-                MOB mob = targetMob;
+                targetMob.MobDestroy();
                // mob.ChangeAppearance();
             }
         }

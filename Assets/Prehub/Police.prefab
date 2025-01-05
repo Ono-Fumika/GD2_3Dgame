@@ -143,7 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02c72661afe5cb64a9a51aa73ee7c855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  navmeshAgent: {fileID: 0}
+  navmeshAgent: {fileID: 7106081501195581079}
   player: {fileID: 6747886018813981933, guid: ea1eea3eec3a84a42a6141eafc7195ad, type: 3}
 --- !u!54 &-734276227038508236
 Rigidbody:

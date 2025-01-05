@@ -27,12 +27,16 @@ public class SearchMob : MonoBehaviour
 
             foreach (MOB mob in mobs)
             {
-                float distance = Vector3.Distance(player.transform.position, mob.transform.position);
-                if (distance < closestDistance)
+                if(mob != null)
                 {
-                    closestDistance = distance;
-                    closestMob = mob;
+                    float distance = Vector3.Distance(player.transform.position, mob.transform.position);
+                    if (distance < closestDistance)
+                    {
+                        closestDistance = distance;
+                        closestMob = mob;
+                    }
                 }
+               
             }
 
             target = closestMob;
