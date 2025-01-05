@@ -46,7 +46,6 @@ public class Title : MonoBehaviour
             else
             {
                 // シーン遷移を開始する
-                Debug.Log("ゲームシーンに行くよ");
                 titleManeger.ChangeScene();
             }
 

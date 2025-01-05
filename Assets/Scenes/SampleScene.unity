@@ -4579,7 +4579,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5373381914119708455, guid: f63894b5241d37a4883e91baa9d3695a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.216262
+      value: 10.22
       objectReference: {fileID: 0}
     - target: {fileID: 5373381914119708455, guid: f63894b5241d37a4883e91baa9d3695a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4587,7 +4587,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5373381914119708455, guid: f63894b5241d37a4883e91baa9d3695a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -18.238277
+      value: -18.24
       objectReference: {fileID: 0}
     - target: {fileID: 5373381914119708455, guid: f63894b5241d37a4883e91baa9d3695a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5581,7 +5581,6 @@ GameObject:
   m_Component:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
-  - component: {fileID: 963194226}
   - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
@@ -5590,14 +5589,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &963194226
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
 --- !u!20 &963194227
 Camera:
   m_ObjectHideFlags: 0
@@ -10559,7 +10550,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7899562c780de9f44b198ebf49e1a68f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startInk: 50
+  currentInk: 0
+  startInk: 3
   slider: {fileID: 1837062037}
 --- !u!114 &1837062037
 MonoBehaviour:

@@ -35,16 +35,15 @@ public class Player : MonoBehaviour
             Move();
         }
         // 絵を描く
-        if (wall != null && targetMob == null)
+        if (wall != null && targetMob == null && ink.currentInk > 0)
         {
             DrawPaint();
         }
 
 
         // モブを変える
-        if (targetMob != null && wall == null)
+        if (targetMob != null && wall == null && ink.currentInk > 0)
         {
-            Debug.Log("モブに描けるよ"); // デバッグメッセージを追加
 
             // スペースを押したら
             if (Input.GetKey(KeyCode.Space) || (Input.GetButton("Fire1")))
@@ -91,7 +90,7 @@ public class Player : MonoBehaviour
         if (wall != null)
         {
             // スペースを押したら
-            if (Input.GetKey(KeyCode.Space) || (Input.GetButton("Fire1")))
+            if (Input.GetKey(KeyCode.Space) && ink.currentInk > 0 || (Input.GetButton("Fire1"))&& ink.currentInk > 0)
             {
                 // 移動をやめる
                 isMove = false;
@@ -105,21 +104,22 @@ public class Player : MonoBehaviour
                 ink.ReduceInk(paintReduce);
             }
             // 離したら
-            if (Input.GetKeyUp(KeyCode.Space) || (Input.GetButtonUp("Fire1")))
+            if (!isMove)
             {
-                // 壁から絵を描く関数を呼び出す
-                wall.DrawPaint(false, this);
-                // DrawColisionを消す
-                wall.DrawColisionDestory();
-                isMove = true;
-                wall = null;
+                if (!Input.GetKey(KeyCode.Space) && ink.currentInk <= 0 || (Input.GetButtonUp("Fire1")) && ink.currentInk <= 0)
+                {
+                    // 壁から絵を描く関数を呼び出す
+                    wall.DrawPaint(false, this);
+                    // DrawColisionを消す
+                    wall.DrawColisionDestory();
+                    isMove = true;
+                    wall = null;
+                }
             }
         }
     }
     public void StopDraw()
     {
-        // DrawColisionを消す
-        wall.DrawColisionDestory();
         isMove = true;
         wall = null;
     }
@@ -132,8 +132,6 @@ public class Player : MonoBehaviour
         // DrawColisionに当たったら
         if (collision.transform.tag == "DrawColosion")
         {
-            Debug.Log("絵を描けるよ"); // デバッグメッセージを追加
-
             // 壁を判定する
             wall = collision.transform.parent.GetComponent<Wall>();
             searchRange = wall.GetComponentInChildren<SearchRange>();

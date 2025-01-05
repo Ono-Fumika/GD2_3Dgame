@@ -30,7 +30,6 @@ public class Clear : MonoBehaviour
         }
         // 最初のpaintWallオブジェクトリストの個数を最大値として設定
         maxPaintWallCount = paintWallList.Count; 
-        Debug.Log("Initial paintWall count: " + maxPaintWallCount);
         // 初期の進行状況を表示
         UpdateProgressText();
     }

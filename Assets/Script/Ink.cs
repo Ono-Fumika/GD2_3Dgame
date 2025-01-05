@@ -8,7 +8,7 @@ public class Ink : MonoBehaviour
     // インクの最大値
     float maxInk = 100.0f;
     // 現在のインク量
-    float currentInk = 0;
+    public float currentInk = 0;
     // インクの初期値
     [SerializeField]
     float startInk;

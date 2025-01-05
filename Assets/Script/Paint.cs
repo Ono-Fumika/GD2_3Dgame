@@ -45,11 +45,19 @@ public class Paint : MonoBehaviour
                 isDraw = false;
                 player.StopDraw();
             }
+            Debug.Log("絵を描けるよ"); // デバッグメッセージを追加
         }
         else
         {
-            //player.StopDraw();
+            material.color = material.color;
+            
         }
+        isDraw = false;
+        if(player != null)
+        {
+            player.StopDraw();
+        }
+        
     }
 
     public void Draw(bool isDraw_,Player player_)
