@@ -5,6 +5,14 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    // インク
+    [SerializeField]
+    Ink ink;
+    // ペイントで減る量
+    float paintReduce = 0.05f;
+    // 身代わりで減る量
+    float mobReduce = 15.0f;
+
     // 壁
     Wall wall;
     // サーチ範囲
@@ -42,14 +50,15 @@ public class Player : MonoBehaviour
             if (Input.GetKey(KeyCode.Space) || (Input.GetButton("Fire1")))
             {
                 targetMob.MobDestroy();
-               // mob.ChangeAppearance();
+                // インクを減らす
+                ink.ReduceInk(mobReduce);
             }
         }
     }
     void Move()
     {
         // 移動スピード
-        float moveSpeed = 3.0f;
+        float moveSpeed = 5.0f;
 
         // 左スティックの入力を取得
         float horizonal = Input.GetAxis("Horizontal");
@@ -73,7 +82,7 @@ public class Player : MonoBehaviour
             transform.position += moveDir * moveSpeed * Time.deltaTime;
             // プレイヤーの方向を進行方向に向ける
             Quaternion targetRotation = Quaternion.LookRotation(moveDir);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * moveSpeed);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 2.0f);
         }
 
     }
@@ -92,6 +101,8 @@ public class Player : MonoBehaviour
                 wall.DrawPaint(true, this);
                 // 範囲を大きくする
                 searchRange.Spread();
+                // インクを減らす
+                ink.ReduceInk(paintReduce);
             }
             // 離したら
             if (Input.GetKeyUp(KeyCode.Space) || (Input.GetButtonUp("Fire1")))
