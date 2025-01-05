@@ -31,6 +31,8 @@ public class Player : MonoBehaviour
         {
             DrawPaint();
         }
+
+
         // ƒ‚ƒu‚ð•Ï‚¦‚é
         if (targetMob != null && wall == null)
         {
@@ -40,7 +42,7 @@ public class Player : MonoBehaviour
             if (Input.GetKey(KeyCode.Space) || (Input.GetButton("Fire1")))
             {
                 MOB mob = targetMob;
-                mob.ChangeAppearance();
+               // mob.ChangeAppearance();
             }
         }
     }

@@ -46,6 +46,10 @@ public class Paint : MonoBehaviour
                 player.StopDraw();
             }
         }
+        else
+        {
+            //player.StopDraw();
+        }
     }
 
     public void Draw(bool isDraw_,Player player_)

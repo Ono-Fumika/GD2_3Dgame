@@ -14,8 +14,6 @@ public class Police : MonoBehaviour
     Player player;
     // プレイヤーを追いかけているかのフラグ
     bool isChasePlayer = false;
-    // プレイヤーを見つけたかのフラグ
-    //bool isFindPlayer = false;
 
     void Start()
     {
@@ -45,17 +43,6 @@ public class Police : MonoBehaviour
     {
         // プレイヤーを追いかける
         navmeshAgent.destination = player.transform.position;
-
-        //// プレイヤーとキョリ正規化
-        //Vector3 direction = (player.transform.position - transform.position).normalized;
-        //// プレイヤーに向けてレイを飛ばす
-        //Ray ray = new(transform.position,direction);
-        //// レイがプレイヤーに当たったら見つける
-        //RaycastHit hit;
-        //if(Physics.Raycast(ray,out hit))
-        //{
-        //    isFindPlayer = true;
-        //}
 
     }
 

@@ -9,6 +9,10 @@ public class Wall : MonoBehaviour
     // DrawColision
     [SerializeField]
     GameObject drawObject;
+    [SerializeField]
+    GameObject searchRange;
+
+    public bool end = false;
 
     void Start()
     {
@@ -32,5 +36,7 @@ public class Wall : MonoBehaviour
     public void DrawColisionDestory()
     {
         Destroy(drawObject);
+        Destroy(searchRange);
+        end = true;
     }
 }
