@@ -47,7 +47,8 @@ public class MOB : MonoBehaviour
 
     public void MobDestroy()
     {
-        Instantiate(mobPlayer, transform.position, transform.rotation);
+        mobPlayer newMob = Instantiate(mobPlayer, transform.position, transform.rotation);
+        newMob.Initialize(points_);
         Destroy(gameObject);
     }
 
