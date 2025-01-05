@@ -4579,7 +4579,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5373381914119708455, guid: f63894b5241d37a4883e91baa9d3695a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.22
+      value: 3.65
       objectReference: {fileID: 0}
     - target: {fileID: 5373381914119708455, guid: f63894b5241d37a4883e91baa9d3695a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -10551,7 +10551,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentInk: 0
-  startInk: 3
+  startInk: 50
   slider: {fileID: 1837062037}
 --- !u!114 &1837062037
 MonoBehaviour:

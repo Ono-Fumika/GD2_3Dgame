@@ -120,6 +120,11 @@ public class Player : MonoBehaviour
     }
     public void StopDraw()
     {
+        if(wall != null)
+        {
+            wall.DrawColisionDestory();
+        }
+        
         isMove = true;
         wall = null;
     }

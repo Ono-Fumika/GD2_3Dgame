@@ -5,7 +5,7 @@ using UnityEngine;
 public class Paint : MonoBehaviour
 {
     // プレイヤー
-    Player player;
+    Player player = null;
     // フェードにかかる総時間
     float fadeDuration = 3.0f;
     // 今の経過時間
@@ -50,13 +50,13 @@ public class Paint : MonoBehaviour
         else
         {
             material.color = material.color;
-            
+            if (player != null)
+            {
+                player.StopDraw();
+            }
+
         }
         isDraw = false;
-        if(player != null)
-        {
-            player.StopDraw();
-        }
         
     }
 
